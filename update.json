@@ -1,0 +1,8 @@
+{
+  "versionCode": 78,
+  "versionName": "1.31.0",
+  "notes": "内测：范围库在本机、QA 默认拉本仓库更新。首次使用请用桌面 APK 安装；上传 Release 后把 apkUrl 与 sha256 填好再点检查更新。",
+  "apkUrl": "https://github.com/xyaz1313/nudge-qa-releases/releases/download/v1.31.0-78/nudge-qa.apk",
+  "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "sizeBytes": 1
+}
