@@ -1,8 +1,8 @@
 {
-  "versionCode": 78,
-  "versionName": "1.31.0",
-  "notes": "内测：范围库在本机、QA 默认拉本仓库更新。首次使用请用桌面 APK 安装；上传 Release 后把 apkUrl 与 sha256 填好再点检查更新。",
-  "apkUrl": "https://github.com/xyaz1313/nudge-qa-releases/releases/download/v1.31.0-78/nudge-qa.apk",
-  "sha256": "0000000000000000000000000000000000000000000000000000000000000000",
-  "sizeBytes": 1
+  "versionCode": 79,
+  "versionName": "1.32.0",
+  "notes": "范围库随安装、刷类合并静默10分钟、时间盒温馨语、还在主线上吗、推迟5/10/20分钟、主线介入设置。",
+  "apkUrl": "https://github.com/xyaz1313/nudge-qa-releases/releases/download/v1.32.0-79/-Cursor.-1.32.0-79-qa.apk",
+  "sha256": "ca5db5f3464cbd28007e21e9461eaca516d4db71b6031590619d83f70108f62f",
+  "sizeBytes": 64622917
 }
