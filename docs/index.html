@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="你又刷了 · 主线陪伴 Android 内测下载与说明" />
+  <title>你又刷了 · 内测</title>
+  <style>
+    :root { --y:#f5d547; --ink:#1c1c1a; --paper:#faf8f2; --muted:#5c5850; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: system-ui, -apple-system, "PingFang SC", "Segoe UI", sans-serif; background: var(--paper); color: var(--ink); line-height: 1.55; }
+    header { background: var(--ink); color: var(--paper); padding: 2.5rem 1.25rem; text-align: center; }
+    header h1 { margin: 0 0 .35rem; font-size: clamp(1.8rem, 5vw, 2.4rem); }
+    header p { margin: 0; opacity: .85; font-size: 1.05rem; }
+    .hero-img { width: 100%; max-width: 720px; display: block; margin: 1.5rem auto 0; border-radius: 12px; }
+    main { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.25rem 3rem; }
+    h2 { font-size: 1.15rem; margin: 2rem 0 .75rem; }
+    .card { background: #fff; border: 1px solid #e5e3d8; border-radius: 16px; padding: 1.25rem 1.35rem; margin-bottom: 1rem; }
+    a.btn { display: inline-block; background: var(--ink); color: var(--y); text-decoration: none; padding: .85rem 1.4rem; border-radius: 999px; font-weight: 650; margin-top: .5rem; }
+    a.btn:hover { filter: brightness(1.08); }
+    ol, ul { padding-left: 1.2rem; margin: .5rem 0; color: var(--muted); }
+    li { margin: .35rem 0; }
+    .note { font-size: .9rem; color: var(--muted); }
+    footer { text-align: center; padding: 2rem; font-size: .85rem; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>你又刷了</h1>
+    <p>主线陪伴 · 内测</p>
+    <img class="hero-img" src="assets/github-social-preview.jpg" alt="阿怪与你又刷了内测" width="720" height="405" />
+  </header>
+  <main>
+    <div class="card">
+      <h2 style="margin-top:0">下载最新 QA 包</h2>
+      <p class="note">当前推荐：<strong>1.32.0 (79)</strong> · 含范围库、刷 feed 介入、时间盒</p>
+      <a class="btn" href="https://github.com/xyaz1313/nudge-qa-releases/releases/latest">前往 Releases 下载 APK</a>
+      <p class="note" style="margin-top:1rem">已安装同签名旧版：App 内「我的 → 许可与版本 → 检查更新」</p>
+    </div>
+    <div class="card">
+      <h2 style="margin-top:0">内测前 3 步</h2>
+      <ol>
+        <li>安装 APK，开启<strong>无障碍</strong></li>
+        <li>建一条<strong>主线</strong>（可点范围库模板）</li>
+        <li>打开<strong>内容识别 + 模型</strong>（如 DeepSeek）</li>
+      </ol>
+    </div>
+    <div class="card">
+      <h2 style="margin-top:0">建议测什么</h2>
+      <ul>
+        <li>前 10 分钟刷抖音/小红书不弹窗</li>
+        <li>明显离题内容才问「还在这次主线上吗？」</li>
+        <li>推迟 5 / 10 / 20 分钟、时间盒用尽温馨提示</li>
+        <li>微信聊天不介入（视频号才可能）</li>
+      </ul>
+    </div>
+    <p class="note">完整源码在私有仓库 <code>nudge-mainline</code>，仅邀请开发者。反馈请走你收到的内测群/联系人。</p>
+    <img class="hero-img" src="assets/inner-test-poster.jpg" alt="内测安装示意海报" width="360" height="640" style="max-width:320px" />
+  </main>
+  <footer>© 内测 · dev.astraedus.nudge</footer>
+</body>
+</html>
