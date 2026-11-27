@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="你又刷了 · Android 内测下载与上手说明" />
+  <meta name="description" content="你又刷了 · 内测 · 新人一步步：先接大模型，再设主线" />
   <meta property="og:title" content="你又刷了 · 内测" />
-  <meta property="og:image" content="https://xyaz1313.github.io/nudge-qa-releases/assets/screen-drift-overlay-1.32.1-80.png" />
+  <meta property="og:image" content="https://xyaz1313.github.io/nudge-qa-releases/assets/splash-monster-crowd.png" />
   <title>你又刷了 · 内测</title>
   <style>
     @font-face { font-family: Noto; src: url("fonts/NotoSansSC-Variable.ttf"); font-weight: 100 900; }
@@ -25,17 +25,23 @@
     header {
       background: var(--ink);
       color: var(--paper);
-      padding: 36px 4vw 40px;
+      padding: 32px 4vw 0;
     }
-    .header-wrap { max-width: 1180px; margin: 0 auto; }
-    .kicker { font-size: 11px; letter-spacing: 0.12em; color: var(--yellow); font-weight: 800; }
+    .header-wrap {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(260px, 44%);
+      gap: 20px;
+      align-items: end;
+    }
+    .kicker { font-size: 11px; letter-spacing: 0.12em; color: var(--yellow); font-weight: 800; margin: 0 0 8px; }
     header h1 {
-      font: clamp(44px, 7vw, 64px)/1.12 Smiley, Noto, sans-serif;
-      margin: 12px 0 10px;
-      max-width: 14ch;
+      font: clamp(40px, 6vw, 58px)/1.12 Smiley, Noto, sans-serif;
+      margin: 0 0 10px;
     }
-    .lead { color: #C5C1B3; max-width: 40rem; margin: 0 0 22px; font-size: 15px; }
-    .header-actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+    .lead { color: #C5C1B3; margin: 0 0 20px; font-size: 15px; max-width: 28rem; }
+    .header-actions { display: flex; flex-wrap: wrap; gap: 10px; padding-bottom: 32px; }
     header a.btn {
       display: inline-block;
       background: var(--yellow);
@@ -47,30 +53,23 @@
       min-height: 44px;
       line-height: 24px;
     }
-    header a.btn-ghost {
-      background: var(--paper);
-      color: var(--ink);
-    }
-    header a.btn-quiet {
-      background: transparent;
-      color: var(--paper);
-      border: 1px solid #625F54;
-      font-weight: 750;
+    header a.btn-ghost { background: var(--paper); color: var(--ink); }
+    .header-art { line-height: 0; padding: 0; margin: 0; }
+    .header-art img {
+      width: 100%;
+      max-height: min(52vh, 440px);
+      object-fit: contain;
+      object-position: bottom right;
+      display: block;
     }
     main { max-width: 1180px; margin: 0 auto; padding: 28px 4vw 56px; }
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
-      margin-bottom: 24px;
-    }
-    .stat {
+    .meta-line {
+      font-size: 13px; color: var(--muted);
+      margin-bottom: 20px;
+      padding: 14px 18px;
       background: var(--paper);
-      border-radius: 24px;
-      padding: 20px 22px;
+      border-radius: 18px;
     }
-    .stat b { display: block; font-size: 32px; line-height: 1.05; }
-    .stat span { font-size: 12px; color: var(--muted); }
     section {
       background: var(--surface);
       border-radius: 24px;
@@ -78,172 +77,204 @@
       margin-bottom: 20px;
       border: 1px solid var(--line);
     }
-    section h2 { font: 28px/1.2 Smiley, Noto, sans-serif; margin: 0 0 14px; }
-    .steps { counter-reset: step; list-style: none; padding: 0; margin: 0 0 8px; }
-    .steps li {
-      counter-increment: step;
-      padding: 14px 0 14px 48px;
-      border-bottom: 1px solid var(--line);
-      position: relative;
-    }
-    .steps li:last-child { border-bottom: none; }
-    .steps li::before {
-      content: counter(step);
-      position: absolute; left: 0; top: 12px;
-      width: 34px; height: 34px; border-radius: 17px;
-      background: var(--ink); color: var(--paper);
-      font-weight: 800; font-size: 14px;
-      display: grid; place-items: center;
-    }
-    .steps strong { display: block; font-size: 16px; margin-bottom: 4px; }
-    .steps p { margin: 0; color: var(--muted); font-size: 14px; }
-    .gallery-title { margin: 0 0 18px; font: 26px/1.2 Smiley, Noto, sans-serif; }
-    .gallery-note { margin: -8px 0 20px; font-size: 13px; color: var(--muted); }
-    .shot-grid {
+    section h2 { font: 28px/1.2 Smiley, Noto, sans-serif; margin: 0 0 8px; }
+    .section-sub { margin: 0 0 22px; color: var(--muted); font-size: 14px; }
+    .walk { list-style: none; padding: 0; margin: 0; }
+    .walk li {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
+      grid-template-columns: minmax(0, 1fr) minmax(200px, 34%);
+      gap: 22px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--line);
+      align-items: start;
     }
-    .shot {
-      margin: 0;
-      background: #E9E7DC;
-      border-radius: 24px;
-      padding: 10px;
-      border: 1px solid var(--line);
+    .walk li:last-child { border-bottom: none; }
+    .step-tag {
+      display: inline-block;
+      background: var(--ink);
+      color: var(--paper);
+      font-size: 12px;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 12px;
+      margin-bottom: 8px;
     }
-    .shot .phone {
+    .walk h3 { margin: 0 0 6px; font-size: 18px; }
+    .path { color: var(--yellow); background: var(--ink); display: inline-block; padding: 2px 0; font-weight: 700; font-size: 13px; margin-bottom: 8px; }
+    .walk p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.65; }
+    .phone-shot {
       background: var(--ink);
       border-radius: 22px;
       padding: 8px;
     }
-    .shot img {
+    .phone-shot img {
       width: 100%;
       display: block;
       border-radius: 16px;
       aspect-ratio: 1440 / 3120;
       object-fit: cover;
       object-position: top center;
-      min-height: min(58vw, 520px);
     }
-    .shot figcaption {
-      font-size: 13px;
-      color: var(--muted);
-      margin-top: 12px;
-      line-height: 1.45;
-      padding: 0 4px 6px;
-    }
-    .shot figcaption b { color: var(--ink); font-size: 14px; }
     .btn {
       display: inline-flex; align-items: center; justify-content: center;
       min-height: 44px; padding: 10px 20px; border-radius: 24px;
       font-weight: 800; text-decoration: none;
       background: var(--yellow); color: var(--ink);
     }
-    table { width: 100%; border-collapse: collapse; font-size: 14px; }
-    th, td { text-align: left; padding: 12px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
-    th { color: var(--muted); font-weight: 600; font-size: 12px; }
     .code {
       font-family: ui-monospace, monospace; font-size: 11px; word-break: break-all;
       color: var(--muted); background: var(--bg); padding: 12px 14px; border-radius: 14px; margin-top: 12px;
     }
-    footer {
-      text-align: center; padding: 28px 4vw 40px; font-size: 12px; color: var(--muted); background: #E9E7DC;
+    .shot-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 8px;
     }
-    @media (max-width: 900px) {
-      .shot-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .stats { grid-template-columns: repeat(2, 1fr); }
+    .shot { margin: 0; background: #E9E7DC; border-radius: 24px; padding: 10px; border: 1px solid var(--line); }
+    .shot img { width: 100%; border-radius: 16px; display: block; }
+    .shot figcaption { font-size: 12px; color: var(--muted); margin-top: 10px; padding: 0 4px; }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    th, td { text-align: left; padding: 12px 8px; border-bottom: 1px solid var(--line); }
+    footer { text-align: center; padding: 28px 4vw 40px; font-size: 12px; color: var(--muted); background: #E9E7DC; }
+    @media (max-width: 820px) {
+      .header-wrap { grid-template-columns: 1fr; }
+      .header-art { order: -1; }
+      .header-art img { max-height: 280px; margin: 0 auto; }
+      .walk li { grid-template-columns: 1fr; }
+      .shot-grid { grid-template-columns: 1fr 1fr; }
     }
-    @media (max-width: 560px) {
-      header { padding: 28px 5vw 32px; }
-      .shot-grid { grid-template-columns: 1fr; }
-    }
+    @media (max-width: 520px) { .shot-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
   <header>
     <div class="header-wrap">
-      <p class="kicker">内测 QA · 1.32.1 (80)</p>
-      <h1>你又刷了<br>回到这次主线。</h1>
-      <p class="lead">主线陪伴 Android 内测页：下载安装包、按步骤开权限建主线，对照下方中文界面与 S25 真机浮窗截图。</p>
-      <div class="header-actions">
-        <a class="btn" href="https://github.com/xyaz1313/nudge-qa-releases/releases/download/v1.32.1-80/niyoushua-1.32.1-80-qa.apk">下载 APK</a>
-        <a class="btn btn-ghost" href="#guide">使用说明</a>
-        <a class="btn btn-quiet" href="#gallery">界面一览</a>
+      <div>
+        <p class="kicker">内测 QA · 1.32.1 (80)</p>
+        <h1>你又刷了<br>回到这次主线。</h1>
+        <p class="lead">新人按顺序来：先接好大模型，再开权限与内容识别，最后建主线。右侧为 App 开机群像。</p>
+        <div class="header-actions">
+          <a class="btn" href="https://github.com/xyaz1313/nudge-qa-releases/releases/download/v1.32.1-80/niyoushua-1.32.1-80-qa.apk">下载 APK</a>
+          <a class="btn btn-ghost" href="#walk">从第 1 步开始</a>
+        </div>
+      </div>
+      <div class="header-art">
+        <img src="assets/splash-monster-crowd.png" alt="你又刷了 · 开机阿怪群像" width="640" height="640" />
       </div>
     </div>
   </header>
 
   <main>
-    <div class="stats">
-      <div class="stat"><b>1.32.1</b><span>版本名</span></div>
-      <div class="stat"><b>80</b><span>版本号</span></div>
-      <div class="stat"><b>64.6 MB</b><span>QA 包大小</span></div>
-      <div class="stat"><b>S25 已过</b><span>真机验收</span></div>
-    </div>
+    <p class="meta-line">SHA-256: <code>1540b0eef3ff5988ed45cb310e850d40a3ec7ab4d5cf21690e6b2754ccebf954</code> · 已装旧包可覆盖 · App 内也可：我的 → 许可与版本 → 检查更新</p>
 
-    <section id="download">
-      <h2>下载</h2>
-      <p style="color:var(--muted);margin:0 0 16px">已装旧内测包可直接覆盖。也可以在 App 里：<strong>我的 → 许可与版本 → 检查更新</strong>。</p>
-      <a class="btn" href="https://github.com/xyaz1313/nudge-qa-releases/releases/download/v1.32.1-80/niyoushua-1.32.1-80-qa.apk">直接下载 APK</a>
-      <div class="code">SHA-256: 1540b0eef3ff5988ed45cb310e850d40a3ec7ab4d5cf21690e6b2754ccebf954</div>
-    </section>
+    <section id="walk">
+      <h2>新人一步一步</h2>
+      <p class="section-sub">不要跳步。尤其<strong>先接大模型</strong>，再开「内容偏离」判断；主线要建好，提醒才有对象。</p>
 
-    <section id="guide">
-      <h2>使用说明</h2>
-      <ol class="steps">
-        <li><strong>安装并开权限</strong><p>系统 <strong>无障碍</strong> 开启「你又刷了」；建议再开 <strong>悬浮窗</strong>。</p></li>
-        <li><strong>建一条主线</strong><p>今天 → 主线；可用范围库四模板，设预计时长（时间盒）。</p></li>
-        <li><strong>内容判断</strong><p>设备能力 → 内容识别 + 模型 API（不配也能测浮窗与计时）。</p></li>
-        <li><strong>刷 feed 规则</strong><p>我的 → 主线介入：默认前 10 分钟静默；微信聊天不介入。</p></li>
-        <li><strong>偏离时</strong><p>问「还在这次主线上吗？」；可看 5 / 10 / 20 分钟或现在休息。</p></li>
+      <ol class="walk">
+        <li>
+          <div>
+            <span class="step-tag">第 1 步</span>
+            <h3>安装 APK</h3>
+            <p>下载并安装内测包，系统提示时允许「安装未知应用」。装完先打开 App 看一眼开机封面即可，不必立刻开权限。</p>
+            <p style="margin-top:10px"><a class="btn" href="https://github.com/xyaz1313/nudge-qa-releases/releases/download/v1.32.1-80/niyoushua-1.32.1-80-qa.apk">下载 APK</a></p>
+          </div>
+          <figure class="phone-shot">
+            <img src="assets/v10-screen-today-zh-light.png" alt="打开 App 后的今天页" loading="lazy" onerror="this.src='assets/v10-screen-home-zh-light.png'" />
+          </figure>
+        </li>
+        <li>
+          <div>
+            <span class="step-tag">第 2 步</span>
+            <h3>接大模型（最重要）</h3>
+            <p class="path">我的 → 模型与渠道</p>
+            <p>选一个渠道（如 DeepSeek / OpenAI 兼容），填入 <strong>API Key</strong>，保存。先做一次连接检查或样例测试。没有 Key 也能用时间规则，但<strong>离题提醒会弱</strong>。</p>
+          </div>
+          <figure class="phone-shot">
+            <img src="assets/v10-screen-model-zh-light.png" alt="模型与渠道" loading="lazy" />
+          </figure>
+        </li>
+        <li>
+          <div>
+            <span class="step-tag">第 3 步</span>
+            <h3>开权限与内容识别</h3>
+            <p class="path">系统设置 → 无障碍 · 我的 → 设备能力 · 我的 → 悬浮窗与通知</p>
+            <p>① 系统里开启「你又刷了」无障碍。② App 内打开<strong>内容识别</strong>（接好模型后再开）。③ 建议开<strong>悬浮窗</strong>，否则提醒会降级到通知栏。</p>
+          </div>
+          <figure class="phone-shot">
+            <img src="assets/v10-screen-permissions-zh-light.png" alt="权限与能力" loading="lazy" />
+          </figure>
+        </li>
+        <li>
+          <div>
+            <span class="step-tag">第 4 步</span>
+            <h3>建一条主线</h3>
+            <p class="path">今天 → 主线 → 新建</p>
+            <p>点<strong>范围库</strong>四模板之一（或自己写范围），填清楚「这次要完成什么」。设<strong>预计时长</strong>（时间盒）；用尽后主页会提示收束，不再做内容弹窗。</p>
+          </div>
+          <figure class="phone-shot">
+            <img src="assets/v10-screen-mainline-zh-light.png" alt="主线与范围" loading="lazy" />
+          </figure>
+        </li>
+        <li>
+          <div>
+            <span class="step-tag">第 5 步</span>
+            <h3>刷 feed 怎么介入（可先不改默认）</h3>
+            <p class="path">我的 → 主线介入 · 刷 feed</p>
+            <p>默认前 <strong>10 分钟</strong>不打扰，抖音 / 小红书 / 视频号合并一段刷。微信<strong>聊天不算</strong>刷类。想先感受弹窗可把静默改短做测试。</p>
+          </div>
+          <figure class="phone-shot">
+            <img src="assets/v10-screen-mine-zh-light.png" alt="我的与介入设置入口" loading="lazy" />
+          </figure>
+        </li>
+        <li>
+          <div>
+            <span class="step-tag">第 6 步</span>
+            <h3>确认浮窗长什么样</h3>
+            <p class="path">我的 → 悬浮窗与通知 → 显示一条测试小浮窗</p>
+            <p>应看到「还在这次主线上吗？」和<strong>再看 5 / 10 / 20 分钟</strong>。然后去抖音试刷；离题时才应弹（静默期内不弹）。</p>
+          </div>
+          <figure class="phone-shot">
+            <img src="assets/screen-drift-overlay-1.32.1-80.png" alt="S25 真机偏离浮窗" loading="lazy" />
+          </figure>
+        </li>
       </ol>
     </section>
 
-    <section id="gallery">
-      <h2 class="gallery-title">界面一览</h2>
-      <p class="gallery-note">两排三列 · 均为中文浅色界面（第五张为 S25 真机偏离浮窗）。</p>
-      <div class="shot-grid">
-        <figure class="shot">
-          <div class="phone"><img src="assets/v10-screen-permissions-zh-light.png" alt="权限与能力" loading="lazy" /></div>
-          <figcaption><b>① 权限与能力</b>无障碍与系统能力</figcaption>
-        </figure>
-        <figure class="shot">
-          <div class="phone"><img src="assets/v10-screen-mainline-zh-light.png" alt="主线管理" loading="lazy" /></div>
-          <figcaption><b>② 主线 / 范围</b>范围库与时间盒</figcaption>
-        </figure>
-        <figure class="shot">
-          <div class="phone"><img src="assets/v10-screen-mine-zh-light.png" alt="我的" loading="lazy" /></div>
-          <figcaption><b>③ 我的</b>悬浮窗 · 刷 feed 介入</figcaption>
-        </figure>
-        <figure class="shot">
-          <div class="phone"><img src="assets/v10-screen-today-zh-light.png" alt="今天" loading="lazy" onerror="this.src='assets/v10-screen-home-zh-light.png'" /></div>
-          <figcaption><b>④ 今天</b>主页与主线入口</figcaption>
-        </figure>
-        <figure class="shot">
-          <div class="phone"><img src="assets/v10-extra-P33.png" alt="悬浮窗与通知" loading="lazy" /></div>
-          <figcaption><b>⑤ 悬浮窗与通知</b>测试小浮窗</figcaption>
-        </figure>
-        <figure class="shot">
-          <div class="phone"><img src="assets/screen-drift-overlay-1.32.1-80.png" alt="偏离浮窗真机" loading="lazy" /></div>
-          <figcaption><b>⑥ 偏离浮窗</b>S25 真机 · 5 / 10 / 20</figcaption>
-        </figure>
-      </div>
-    </section>
-
     <section id="test">
-      <h2>建议测什么</h2>
+      <h2>内测建议核对</h2>
       <table>
         <thead><tr><th>项</th><th>预期</th></tr></thead>
         <tbody>
-          <tr><td>浮窗四角</td><td>测试小浮窗：白卡四角无尖角虚影</td></tr>
+          <tr><td>模型</td><td>连接成功后再开内容识别</td></tr>
+          <tr><td>浮窗四角</td><td>测试小浮窗白卡四角干净</td></tr>
           <tr><td>前 10 分钟</td><td>抖音 + 小红书合并静默</td></tr>
-          <tr><td>离题弹窗</td><td>还在这次主线上吗？ · 5/10/20</td></tr>
           <tr><td>微信</td><td>聊天不介入；视频号才可能</td></tr>
         </tbody>
       </table>
     </section>
+
+    <section id="gallery">
+      <h2>界面速览</h2>
+      <p class="section-sub">三列对照，与上面步骤同一套中文浅色界面。</p>
+      <div class="shot-grid">
+        <figure class="shot">
+          <img src="assets/v10-screen-model-zh-light.png" alt="" loading="lazy" />
+          <figcaption>模型与渠道</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="assets/v10-extra-P33.png" alt="" loading="lazy" />
+          <figcaption>悬浮窗与通知</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="assets/screen-drift-overlay-1.32.1-80.png" alt="" loading="lazy" />
+          <figcaption>S25 偏离浮窗</figcaption>
+        </figure>
+      </div>
+    </section>
   </main>
 
-  <footer>© 内测 · dev.astraedus.nudge · 源码私有仓 nudge-mainline</footer>
+  <footer>© 内测 · dev.astraedus.nudge</footer>
 </body>
 </html>
