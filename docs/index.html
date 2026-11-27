@@ -3,60 +3,247 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="你又刷了 · 主线陪伴 Android 内测下载与说明" />
+  <meta name="description" content="你又刷了 · V10 视觉一致的内测下载与上手说明" />
+  <meta property="og:title" content="你又刷了 · 内测" />
+  <meta property="og:description" content="主线陪伴 Android 内测 · 1.32.1 (80)" />
+  <meta property="og:image" content="https://xyaz1313.github.io/nudge-qa-releases/assets/screen-drift-overlay-1.32.1-80.png" />
   <title>你又刷了 · 内测</title>
   <style>
-    :root { --y:#f5d547; --ink:#1c1c1a; --paper:#faf8f2; --muted:#5c5850; }
+    @font-face { font-family: Noto; src: url("fonts/NotoSansSC-Variable.ttf"); font-weight: 100 900; }
+    @font-face { font-family: Smiley; src: url("fonts/SmileySans-Oblique.ttf"); }
+    :root {
+      --yellow: #FFBF00;
+      --ink: #111111;
+      --paper: #FFF9EA;
+      --bg: #F2F1EB;
+      --muted: #4D4A40;
+      --line: #DEDCD1;
+      --surface: #FFFFFF;
+    }
     * { box-sizing: border-box; }
-    body { margin:0; font-family: system-ui, -apple-system, "PingFang SC", "Segoe UI", sans-serif; background: var(--paper); color: var(--ink); line-height: 1.55; }
-    header { background: var(--ink); color: var(--paper); padding: 2.5rem 1.25rem; text-align: center; }
-    header h1 { margin: 0 0 .35rem; font-size: clamp(1.8rem, 5vw, 2.4rem); }
-    header p { margin: 0; opacity: .85; font-size: 1.05rem; }
-    .hero-img { width: 100%; max-width: 720px; display: block; margin: 1.5rem auto 0; border-radius: 12px; }
-    main { max-width: 720px; margin: 0 auto; padding: 1.5rem 1.25rem 3rem; }
-    h2 { font-size: 1.15rem; margin: 2rem 0 .75rem; }
-    .card { background: #fff; border: 1px solid #e5e3d8; border-radius: 16px; padding: 1.25rem 1.35rem; margin-bottom: 1rem; }
-    a.btn { display: inline-block; background: var(--ink); color: var(--y); text-decoration: none; padding: .85rem 1.4rem; border-radius: 999px; font-weight: 650; margin-top: .5rem; }
-    a.btn:hover { filter: brightness(1.08); }
-    ol, ul { padding-left: 1.2rem; margin: .5rem 0; color: var(--muted); }
-    li { margin: .35rem 0; }
-    .note { font-size: .9rem; color: var(--muted); }
-    footer { text-align: center; padding: 2rem; font-size: .85rem; color: var(--muted); }
+    body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.75 Noto, "PingFang SC", sans-serif; }
+    a { color: inherit; }
+    header {
+      background: var(--ink);
+      color: var(--paper);
+      padding: 36px 4vw 32px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .eyebrow { font-size: 10px; letter-spacing: 1.6px; color: var(--yellow); font-weight: 800; }
+    h1 { font: clamp(42px, 8vw, 68px)/1.08 Smiley, Noto, sans-serif; margin: 10px 0 8px; letter-spacing: -0.5px; }
+    .lead { color: #BDB9AC; max-width: 34rem; margin: 0; }
+    .header-mascot { width: 88px; height: 88px; flex-shrink: 0; }
+  .header-actions { display: flex; flex-wrap: wrap; gap: 10px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 10px 20px;
+      border-radius: 24px;
+      font-weight: 800;
+      text-decoration: none;
+      border: none;
+    }
+    .btn-primary { background: var(--yellow); color: var(--ink); }
+    .btn-ghost { background: var(--paper); color: var(--ink); }
+    main { max-width: 980px; margin: 0 auto; padding: 28px 4vw 48px; }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 14px;
+      margin-bottom: 28px;
+    }
+    .stat {
+      background: var(--paper);
+      border-radius: 22px;
+      padding: 18px 20px;
+    }
+    .stat b { display: block; font-size: 28px; line-height: 1.1; }
+    .stat span { font-size: 12px; color: var(--muted); }
+    section {
+      background: var(--surface);
+      border-radius: 24px;
+      padding: 24px 26px;
+      margin-bottom: 20px;
+      border: 1px solid var(--line);
+    }
+    section h2 {
+      font: 28px/1.2 Smiley, Noto, sans-serif;
+      margin: 0 0 12px;
+    }
+    .steps { counter-reset: step; list-style: none; padding: 0; margin: 0; }
+    .steps li {
+      counter-increment: step;
+      padding: 16px 0 16px 48px;
+      border-bottom: 1px solid var(--line);
+      position: relative;
+    }
+    .steps li:last-child { border-bottom: none; }
+    .steps li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 14px;
+      width: 32px;
+      height: 32px;
+      border-radius: 16px;
+      background: var(--ink);
+      color: var(--paper);
+      font-weight: 800;
+      font-size: 14px;
+      display: grid;
+      place-items: center;
+    }
+    .steps strong { display: block; font-size: 16px; margin-bottom: 4px; }
+    .steps p { margin: 0; color: var(--muted); font-size: 14px; }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    th, td { text-align: left; padding: 12px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    th { color: var(--muted); font-weight: 600; font-size: 12px; }
+    .shot-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-top: 18px;
+    }
+    .shot {
+      background: var(--bg);
+      border-radius: 22px;
+      padding: 12px;
+      border: 1px solid var(--line);
+    }
+    .shot img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 18px;
+    }
+    .shot figcaption {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 8px;
+      line-height: 1.5;
+    }
+    .shot.real { grid-column: 1 / -1; max-width: 420px; margin: 0 auto; }
+    .code {
+      font-family: ui-monospace, monospace;
+      font-size: 11px;
+      word-break: break-all;
+      color: var(--muted);
+      background: var(--bg);
+      padding: 12px 14px;
+      border-radius: 14px;
+      margin-top: 12px;
+    }
+    footer {
+      text-align: center;
+      padding: 28px 4vw 40px;
+      font-size: 12px;
+      color: var(--muted);
+      background: #E9E7DC;
+    }
+    @media (max-width: 650px) {
+      .header-mascot { display: none; }
+    }
   </style>
 </head>
 <body>
   <header>
-    <h1>你又刷了</h1>
-    <p>主线陪伴 · 内测</p>
-    <img class="hero-img" src="assets/github-social-preview.jpg" alt="阿怪与你又刷了内测" width="720" height="405" />
+    <div>
+      <span class="eyebrow">BACK TO MAINLINE / 内测 QA</span>
+      <h1>你又刷了</h1>
+      <p class="lead">主线陪伴 Android · 视觉与 App 同为 V10（暖黄 #FFBF00、墨黑 #111、纸白 #FFF9EA）。本页说明与真机截图一致，不含占位 AI 海报。</p>
+    </div>
+    <img class="header-mascot" src="assets/monster-bigmouth-transparent.png" alt="阿怪" width="88" height="88" />
+    <div class="header-actions">
+      <a class="btn btn-primary" href="https://github.com/xyaz1313/nudge-qa-releases/releases/download/v1.32.1-80/niyoushua-1.32.1-80-qa.apk">下载 APK 1.32.1 (80)</a>
+      <a class="btn btn-ghost" href="#guide">使用说明</a>
+    </div>
   </header>
+
   <main>
-    <div class="card">
-      <h2 style="margin-top:0">下载最新 QA 包</h2>
-      <p class="note">当前推荐：<strong>1.32.1 (80)</strong> · 浮窗圆角修复 + 范围库、刷 feed 介入、时间盒</p>
-      <a class="btn" href="https://github.com/xyaz1313/nudge-qa-releases/releases/latest">前往 Releases 下载 APK</a>
-      <p class="note" style="margin-top:1rem">已安装同签名旧版：App 内「我的 → 许可与版本 → 检查更新」</p>
+    <div class="stats">
+      <div class="stat"><b>1.32.1</b><span>versionName</span></div>
+      <div class="stat"><b>80</b><span>versionCode</span></div>
+      <div class="stat"><b>64.6 MB</b><span>QA 包大小</span></div>
+      <div class="stat"><b>S25 过</b><span>真机已验收</span></div>
     </div>
-    <div class="card">
-      <h2 style="margin-top:0">内测前 3 步</h2>
-      <ol>
-        <li>安装 APK，开启<strong>无障碍</strong></li>
-        <li>建一条<strong>主线</strong>（可点范围库模板）</li>
-        <li>打开<strong>内容识别 + 模型</strong>（如 DeepSeek）</li>
+
+    <section id="download">
+      <h2>下载</h2>
+      <p style="color:var(--muted);margin:0 0 16px">已装旧内测包可直接覆盖安装。也可在 App 内：<strong>我的 → 许可与版本 → 检查更新</strong>（读 GitHub <code>update.json</code>）。</p>
+      <a class="btn btn-primary" href="https://github.com/xyaz1313/nudge-qa-releases/releases/download/v1.32.1-80/niyoushua-1.32.1-80-qa.apk">直接下载 APK</a>
+      <a class="btn btn-ghost" style="margin-left:8px" href="https://github.com/xyaz1313/nudge-qa-releases/releases/tag/v1.32.1-80">Release 页</a>
+      <div class="code">SHA-256: 1540b0eef3ff5988ed45cb310e850d40a3ec7ab4d5cf21690e6b2754ccebf954</div>
+    </section>
+
+    <section id="guide">
+      <h2>使用说明</h2>
+      <ol class="steps">
+        <li>
+          <strong>安装并开权限</strong>
+          <p>允许「安装未知应用」。在系统 <strong>无障碍</strong> 里开启「你又刷了」；建议同时给 <strong>悬浮窗</strong>（我的 → 悬浮窗与通知）。下图权限页版式与 App V10 一致。</p>
+        </li>
+        <li>
+          <strong>建一条主线</strong>
+          <p>进入「今天 → 主线」，可点内置 <strong>范围库</strong> 四条模板（AI 流量变现、内容创作、学习考证、电商运营），或自己填范围。设好预计时长（时间盒）。</p>
+        </li>
+        <li>
+          <strong>打开内容判断</strong>
+          <p>我的 → 设备能力与手机操作：开启内容识别，并配置模型 API（如 DeepSeek）。不配 API 也能测浮窗与计时，但离题判断会弱。</p>
+        </li>
+        <li>
+          <strong>刷类 App 怎么问</strong>
+          <p>我的 → <strong>主线介入 · 刷 feed</strong>：默认前 <strong>10 分钟</strong> 合并静默（抖音/小红书/视频号算同一段刷）；之后才可能问「还在这次主线上吗？」。微信<strong>聊天不算</strong>，视频号才可能。</p>
+        </li>
+        <li>
+          <strong>推迟与休息</strong>
+          <p>偏离浮窗：<strong>回到主线</strong>、<strong>再看 5 / 10 / 20 分钟</strong>、<strong>现在休息</strong>。时间盒用尽后主页会出现「时间盒用完了～」类提示，不再做内容弹窗。</p>
+        </li>
       </ol>
-    </div>
-    <div class="card">
-      <h2 style="margin-top:0">建议测什么</h2>
-      <ul>
-        <li>前 10 分钟刷抖音/小红书不弹窗</li>
-        <li>明显离题内容才问「还在这次主线上吗？」</li>
-        <li>推迟 5 / 10 / 20 分钟、时间盒用尽温馨提示</li>
-        <li>微信聊天不介入（视频号才可能）</li>
-      </ul>
-    </div>
-    <p class="note">完整源码在私有仓库 <code>nudge-mainline</code>，仅邀请开发者。反馈请走你收到的内测群/联系人。</p>
-    <img class="hero-img" src="assets/inner-test-poster.jpg" alt="内测安装示意海报" width="360" height="640" style="max-width:320px" />
+
+      <div class="shot-row">
+        <figure class="shot">
+          <img src="assets/v10-screen-permissions-zh-light.png" alt="权限与能力 · V10 设计稿" loading="lazy" width="360" height="780" />
+          <figcaption>① 权限与能力（V10 页面，与 App 同源）</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="assets/v10-screen-mainline-zh-light.png" alt="主线管理 · V10 设计稿" loading="lazy" width="360" height="780" />
+          <figcaption>② 主线 / 范围（V10 页面）</figcaption>
+        </figure>
+        <figure class="shot">
+          <img src="assets/v10-screen-mine-zh-light.png" alt="我的 · V10 设计稿" loading="lazy" width="360" height="780" />
+          <figcaption>③ 我的 · 入口（悬浮窗、介入设置）</figcaption>
+        </figure>
+        <figure class="shot real">
+          <img src="assets/screen-drift-overlay-1.32.1-80.png" alt="S25 真机偏离浮窗" loading="lazy" width="412" height="892" />
+          <figcaption>④ 偏离浮窗 · <strong>S25 真机</strong> 1.32.1 (80)：标题、5/10/20、圆角四角已验收</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="test">
+      <h2>建议测什么</h2>
+      <table>
+        <thead><tr><th>项</th><th>预期</th></tr></thead>
+        <tbody>
+          <tr><td>浮窗四角</td><td>我的 → 悬浮窗与通知 → 显示测试小浮窗：白卡四角无尖角虚影</td></tr>
+          <tr><td>前 10 分钟</td><td>抖音 + 小红书合并计时段内不打扰</td></tr>
+          <tr><td>离题才问</td><td>标题「还在这次主线上吗？」；推迟 5/10/20</td></tr>
+          <tr><td>微信</td><td>聊天不介入；视频号才可能</td></tr>
+          <tr><td>时间盒</td><td>预计分钟用尽 → 温馨收束，不再内容弹窗</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:13px;color:var(--muted);margin:16px 0 0">反馈请带：机型、App、大概几分钟、弹没弹、截图、你觉得该不该弹。反馈渠道由分发人告知。</p>
+    </section>
   </main>
-  <footer>© 内测 · dev.astraedus.nudge</footer>
+
+  <footer>
+  © 内测 · <code>dev.astraedus.nudge</code> · 源码私有仓 <code>nudge-mainline</code>，本仓仅 APK + 说明
+  </footer>
 </body>
 </html>
