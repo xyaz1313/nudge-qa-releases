@@ -1,8 +1,8 @@
 {
   "versionCode": 80,
   "versionName": "1.32.1",
-  "notes": "1.32.1：Beta 签名（真实介入节奏）；五屏引导；浮窗与刷 feed 静默优化。曾装更早内测包请先卸载再装；之后本页下载可覆盖升级。",
+  "notes": "1.32.1：Beta 签名；五屏引导；相册选图不再误弹 15 秒挡屏；刷 feed 偏离小浮窗。曾装旧 debug 内测请先卸载再装。",
   "apkUrl": "https://github.com/xyaz1313/nudge-qa-releases/releases/download/v1.32.1-80/niyoushua-1.32.1-80-beta.apk",
-  "sha256": "d7b7ef31cda40cb3a00ea5e22fbd9fa609766736fefcace66cf86d5a1fa00df2",
+  "sha256": "40679869ac5612c89118005df48ec43add01a673c42338368aef699be9483f7c",
   "sizeBytes": 42927018
 }
