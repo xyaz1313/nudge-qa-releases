@@ -5,7 +5,7 @@
 | 链接 | 说明 |
 |------|------|
 | **[内测页（V10 视觉）](https://xyaz1313.github.io/nudge-qa-releases/)** | 下载 + 完整使用说明 + 真机截图 |
-| **[Releases](https://github.com/xyaz1313/nudge-qa-releases/releases/latest)** | APK（含可读文件名 `niyoushua-1.32.1-80-qa.apk`） |
+| **[Releases](https://github.com/xyaz1313/nudge-qa-releases/releases/latest)** | APK（`niyoushua-1.32.1-80-beta.apk`，Beta 签名） |
 | `update.json` | App 内「检查更新」 |
 
 ## 仓库分工

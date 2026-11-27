@@ -1,8 +1,8 @@
 {
   "versionCode": 80,
   "versionName": "1.32.1",
-  "notes": "1.32.1：浮窗四角修复；范围库、刷会话静默、时间盒、5/10/20 推迟。",
-  "apkUrl": "https://github.com/xyaz1313/nudge-qa-releases/releases/download/v1.32.1-80/niyoushua-1.32.1-80-qa.apk",
-  "sha256": "1540b0eef3ff5988ed45cb310e850d40a3ec7ab4d5cf21690e6b2754ccebf954",
-  "sizeBytes": 64622917
+  "notes": "1.32.1：Beta 签名（真实介入节奏）；五屏引导；浮窗与刷 feed 静默优化。曾装更早内测包请先卸载再装；之后本页下载可覆盖升级。",
+  "apkUrl": "https://github.com/xyaz1313/nudge-qa-releases/releases/download/v1.32.1-80/niyoushua-1.32.1-80-beta.apk",
+  "sha256": "d7b7ef31cda40cb3a00ea5e22fbd9fa609766736fefcace66cf86d5a1fa00df2",
+  "sizeBytes": 42927018
 }

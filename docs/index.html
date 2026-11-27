@@ -10,7 +10,6 @@
   <meta property="og:image" content="https://xyaz1313.github.io/nudge-qa-releases/assets/splash-monster-crowd.png" />
   <title>你又刷了 · 内测</title>
   <style>
-    @font-face { font-family: Noto; src: url("fonts/NotoSansSC-Variable.ttf"); font-weight: 100 900; }
     @font-face { font-family: Smiley; src: url("fonts/SmileySans-Oblique.ttf"); }
     @font-face { font-family: Unbounded; src: url("fonts/Unbounded-Variable.ttf"); font-weight: 200 900; }
     :root {
@@ -23,7 +22,7 @@
       --surface: #FFFFFF;
     }
     * { box-sizing: border-box; }
-    body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.75 Noto, "PingFang SC", sans-serif; }
+    body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.75 "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif; }
     a { color: inherit; }
     header {
       background: var(--ink);
@@ -194,12 +193,14 @@
   <header>
     <div class="header-wrap">
       <div>
-        <p class="kicker">BACK TO MAINLINE · QA BUILD</p>
+        <p class="kicker">BACK TO MAINLINE · BETA</p>
         <p class="title-zh">你又刷了</p>
         <p class="title-en">BACK TO MAINLINE</p>
-        <p class="lead">内测 1.32.1 (80)。点「下载 APK」会<strong>直接下安装包</strong>（Android 下完后点通知安装）；装好在 App 点「开始设置」。</p>
+        <p class="lead">内测 1.32.1 (80)。点「下载 APK」会<strong>直接下安装包</strong>（Android 下完后点通知安装）；装好在 App 点「开始设置」。
+          <br />若你装过<strong>更早的内测包</strong>且无法覆盖，请先卸载再装本版；之后从本页下载可一直覆盖升级。</p>
         <div class="header-actions">
-          <a class="btn" download="niyoushua-1.32.1-80-qa.apk" href="https://github.com/xyaz1313/nudge-qa-releases/releases/download/v1.32.1-80/niyoushua-1.32.1-80-qa.apk">下载 APK 1.32.1 (80)</a>
+          <a class="btn" download="niyoushua-1.32.1-80-beta.apk" href="https://github.com/xyaz1313/nudge-qa-releases/releases/download/v1.32.1-80/niyoushua-1.32.1-80-beta.apk">下载 APK 1.32.1 (80)</a>
+          <a class="btn btn-ghost" href="https://github.com/xyaz1313/nudge-qa-releases/releases/latest">备用（GitHub 发布页）</a>
           <a class="btn btn-ghost" href="#walk">使用说明</a>
         </div>
       </div>
@@ -223,7 +224,7 @@
             <p>第一次打开停在黄底封面，点底部黑按钮 <strong>开始设置</strong>（不是「回主线」标签，那是品牌字样）。</p>
             <p class="hint">画面应和右图一致：阿怪群像 +「开始设置」。</p>
           </div>
-          <figure class="screen-cap"><img src="assets/onboarding-01-start-setup-s25.png?v=4" alt="黄底封面 · 开始设置" loading="lazy" /></figure>
+          <figure class="screen-cap"><img src="assets/onboarding-01-start-setup-s25.png?v=5" alt="黄底封面 · 开始设置" loading="lazy" /></figure>
         </li>
         <li>
           <div>
@@ -233,7 +234,7 @@
             <p>选供应商，填 API Key，点保存。赶时间可点<strong>暂时跳过，下一步</strong>（只靠时间规则，离题判断会弱一些）。</p>
             <p class="hint">装好模型后再开「内容识别」。</p>
           </div>
-          <figure class="screen-cap"><img src="assets/onboarding-02-model-s25.png?v=4" alt="模型与渠道 · 内测引导" loading="lazy" /></figure>
+          <figure class="screen-cap"><img src="assets/onboarding-02-model-s25.png?v=5" alt="模型与渠道 · 内测引导" loading="lazy" /></figure>
         </li>
         <li>
           <div>
@@ -242,7 +243,7 @@
             <p>点范围库模板或自己写标题，再选预计时长，点<strong>保存这条主线</strong>。</p>
             <p class="hint">标题不能为空；时长要点选一个（15 / 30 / 45 分钟等）。</p>
           </div>
-          <figure class="screen-cap"><img src="assets/v10-screen-mainline-zh-light.png?v=4" alt="建主线" loading="lazy" /></figure>
+          <figure class="screen-cap"><img src="assets/v10-screen-mainline-zh-light.png?v=5" alt="建主线" loading="lazy" /></figure>
         </li>
         <li>
           <div>
@@ -251,32 +252,19 @@
             <p>无障碍、使用情况、悬浮窗、通知——每项点进去开；最后一页点<strong>查看并开启权限</strong>进试一次。</p>
             <p class="hint">极简说明在引导里已写好，这里不再展开法律长文。</p>
           </div>
-          <figure class="screen-cap"><img src="assets/v10-screen-permissions-zh-light.png?v=4" alt="权限引导" loading="lazy" /></figure>
+          <figure class="screen-cap"><img src="assets/v10-screen-permissions-zh-light.png?v=5" alt="权限引导" loading="lazy" /></figure>
         </li>
         <li>
           <div>
             <span class="step-tag">05 / 05</span>
             <h3>试一次提醒</h3>
-            <p>跟引导测 1 分钟，或点<strong>进入今天</strong>先用起来。</p>
+            <p>点<strong>显示一条测试小浮窗</strong>确认样式，或点<strong>进入今天</strong>先用起来。</p>
             <p class="hint">之后可随时：我的 → 悬浮窗与通知 → 测试小浮窗。</p>
           </div>
-          <figure class="screen-cap"><img src="assets/screen-drift-overlay-1.32.1-80.png?v=4" alt="偏离浮窗 · S25 真机" loading="lazy" /></figure>
+          <figure class="screen-cap"><img src="assets/screen-drift-overlay-1.32.1-80.png?v=5" alt="偏离浮窗 · S25 真机" loading="lazy" /></figure>
         </li>
       </ol>
       <p class="section-sub" style="margin-top:16px">进阶：我的 → <strong>主线介入 · 刷 feed</strong>（默认前 10 分钟静默）· 微信聊天不介入。</p>
-    </section>
-
-    <section id="test">
-      <h2>内测建议核对</h2>
-      <table>
-        <thead><tr><th>项</th><th>预期</th></tr></thead>
-        <tbody>
-          <tr><td>模型</td><td>连接成功后再开内容识别</td></tr>
-          <tr><td>浮窗四角</td><td>测试小浮窗白卡四角干净</td></tr>
-          <tr><td>前 10 分钟</td><td>抖音 + 小红书合并静默</td></tr>
-          <tr><td>微信</td><td>聊天不介入；视频号才可能</td></tr>
-        </tbody>
-      </table>
     </section>
 
     <section id="gallery">
@@ -337,7 +325,7 @@
         </li>
         <li>
           <h3>更新包</h3>
-          <p>回到本页点「下载 APK」覆盖安装，或 App 内：我的 → 许可与版本 → 检查更新。</p>
+          <p>本页「下载 APK」覆盖安装即可，或 App 内：我的 → 许可与版本 → 检查更新。只有<strong>从本版起</strong>连续用本页下载的包才能一直覆盖。</p>
         </li>
       </ul>
     </section>
@@ -355,7 +343,7 @@
   </main>
 
   <footer>
-    <p>© 内测 · dev.astraedus.nudge</p>
+    <p>© 内测 · 你又刷了</p>
   </footer>
 </body>
 </html>
