@@ -3,6 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
   <meta name="description" content="你又刷了 · 内测 · 新人一步步：先接大模型，再设主线" />
   <meta property="og:title" content="你又刷了 · 内测" />
   <meta property="og:image" content="https://xyaz1313.github.io/nudge-qa-releases/assets/splash-monster-crowd.png" />
@@ -87,13 +89,6 @@
     }
     .progress-hint i.on { background: var(--yellow); width: 22px; }
     main { max-width: 1180px; margin: 0 auto; padding: 28px 4vw 56px; }
-    .meta-line {
-      font-size: 13px; color: var(--muted);
-      margin-bottom: 20px;
-      padding: 14px 18px;
-      background: var(--paper);
-      border-radius: 18px;
-    }
     section {
       background: var(--surface);
       border-radius: 24px;
@@ -115,8 +110,8 @@
     .walk li:last-child { border-bottom: none; }
     .step-tag {
       display: inline-block;
-      background: var(--ink);
-      color: var(--paper);
+      background: var(--yellow);
+      color: var(--ink);
       font-size: 12px;
       font-weight: 800;
       padding: 4px 10px;
@@ -124,7 +119,7 @@
       margin-bottom: 8px;
     }
     .walk h3 { margin: 0 0 6px; font-size: 18px; }
-    .path { color: var(--yellow); background: var(--ink); display: inline-block; padding: 2px 0; font-weight: 700; font-size: 13px; margin-bottom: 8px; }
+    .path { color: var(--muted); font-weight: 700; font-size: 13px; margin-bottom: 8px; }
     .walk p { margin: 0 0 8px; color: var(--muted); font-size: 14px; line-height: 1.65; }
     .walk p:last-child { margin-bottom: 0; }
     .walk .hint { font-size: 13px; color: var(--muted); margin-top: 4px; }
@@ -215,8 +210,6 @@
   </header>
 
   <main>
-    <p class="meta-line">SHA-256: <code>1540b0eef3ff5988ed45cb310e850d40a3ec7ab4d5cf21690e6b2754ccebf954</code> · 已装旧包可覆盖 · App 内也可：我的 → 许可与版本 → 检查更新</p>
-
     <section id="walk">
       <h2>安装后怎么设置</h2>
       <p class="section-sub">这一页就是<strong>完整使用说明</strong>：先按下面 5 步走一遍（与 App 内引导一致），再往下的「日常用法」「常见问题」按需要查阅即可。</p>
@@ -230,7 +223,7 @@
             <p>第一次打开停在黄底封面，点底部黑按钮 <strong>开始设置</strong>（不是「回主线」标签，那是品牌字样）。</p>
             <p class="hint">画面应和右图一致：阿怪群像 +「开始设置」。</p>
           </div>
-          <figure class="screen-cap"><img src="assets/onboarding-01-start-setup-s25.png?v=3" alt="黄底封面 · 开始设置" loading="lazy" /></figure>
+          <figure class="screen-cap"><img src="assets/onboarding-01-start-setup-s25.png?v=4" alt="黄底封面 · 开始设置" loading="lazy" /></figure>
         </li>
         <li>
           <div>
@@ -240,7 +233,7 @@
             <p>选供应商，填 API Key，点保存。赶时间可点<strong>暂时跳过，下一步</strong>（只靠时间规则，离题判断会弱一些）。</p>
             <p class="hint">装好模型后再开「内容识别」。</p>
           </div>
-          <figure class="screen-cap"><img src="assets/onboarding-02-model-s25.png?v=3" alt="模型与渠道 · 内测引导" loading="lazy" /></figure>
+          <figure class="screen-cap"><img src="assets/onboarding-02-model-s25.png?v=4" alt="模型与渠道 · 内测引导" loading="lazy" /></figure>
         </li>
         <li>
           <div>
@@ -249,7 +242,7 @@
             <p>点范围库模板或自己写标题，再选预计时长，点<strong>保存这条主线</strong>。</p>
             <p class="hint">标题不能为空；时长要点选一个（15 / 30 / 45 分钟等）。</p>
           </div>
-          <figure class="screen-cap"><img src="assets/v10-screen-mainline-zh-light.png?v=3" alt="建主线" loading="lazy" /></figure>
+          <figure class="screen-cap"><img src="assets/v10-screen-mainline-zh-light.png?v=4" alt="建主线" loading="lazy" /></figure>
         </li>
         <li>
           <div>
@@ -258,7 +251,7 @@
             <p>无障碍、使用情况、悬浮窗、通知——每项点进去开；最后一页点<strong>查看并开启权限</strong>进试一次。</p>
             <p class="hint">极简说明在引导里已写好，这里不再展开法律长文。</p>
           </div>
-          <figure class="screen-cap"><img src="assets/v10-screen-permissions-zh-light.png?v=3" alt="权限引导" loading="lazy" /></figure>
+          <figure class="screen-cap"><img src="assets/v10-screen-permissions-zh-light.png?v=4" alt="权限引导" loading="lazy" /></figure>
         </li>
         <li>
           <div>
@@ -267,7 +260,7 @@
             <p>跟引导测 1 分钟，或点<strong>进入今天</strong>先用起来。</p>
             <p class="hint">之后可随时：我的 → 悬浮窗与通知 → 测试小浮窗。</p>
           </div>
-          <figure class="screen-cap"><img src="assets/screen-drift-overlay-1.32.1-80.png?v=3" alt="偏离浮窗 · S25 真机" loading="lazy" /></figure>
+          <figure class="screen-cap"><img src="assets/screen-drift-overlay-1.32.1-80.png?v=4" alt="偏离浮窗 · S25 真机" loading="lazy" /></figure>
         </li>
       </ol>
       <p class="section-sub" style="margin-top:16px">进阶：我的 → <strong>主线介入 · 刷 feed</strong>（默认前 10 分钟静默）· 微信聊天不介入。</p>
@@ -344,7 +337,7 @@
         </li>
         <li>
           <h3>更新包</h3>
-          <p>本页顶部下载 APK，或 App 内：我的 → 许可与版本 → 检查更新。</p>
+          <p>回到本页点「下载 APK」覆盖安装，或 App 内：我的 → 许可与版本 → 检查更新。</p>
         </li>
       </ul>
     </section>
