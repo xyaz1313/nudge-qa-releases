@@ -182,16 +182,6 @@
     .shot figcaption { font-size: 12px; color: var(--muted); margin-top: 10px; padding: 0 4px; }
     table { width: 100%; border-collapse: collapse; font-size: 14px; }
     th, td { text-align: left; padding: 12px 8px; border-bottom: 1px solid var(--line); }
-    .share-url {
-      font-family: ui-monospace, monospace;
-      font-size: 13px;
-      word-break: break-all;
-      background: var(--paper);
-      padding: 14px 16px;
-      border-radius: 14px;
-      border: 1px solid var(--line);
-      margin: 12px 0 0;
-    }
     .why-lead { font-size: 16px; line-height: 1.7; color: var(--ink); margin: 0 0 12px; }
     footer { text-align: center; padding: 28px 4vw 40px; font-size: 12px; color: var(--muted); background: #E9E7DC; }
     footer a { color: var(--ink); font-weight: 700; }
@@ -212,10 +202,9 @@
         <p class="kicker">BACK TO MAINLINE · QA BUILD</p>
         <p class="title-zh">你又刷了</p>
         <p class="title-en">BACK TO MAINLINE</p>
-        <p class="lead">内测 1.32.1 (80)。装好后在 App 点「开始设置」— 先接大模型，再建主线，再开权限。</p>
-        <p class="lead" style="margin-top:-8px;font-size:12px">说明书与下载同一链接，<strong>不用自建服务器</strong>（见页底「怎么发给别人」）。</p>
+        <p class="lead">内测 1.32.1 (80)。点「下载 APK」会<strong>直接下安装包</strong>（Android 下完后点通知安装）；装好在 App 点「开始设置」。</p>
         <div class="header-actions">
-          <a class="btn" href="https://github.com/xyaz1313/nudge-qa-releases/releases/download/v1.32.1-80/niyoushua-1.32.1-80-qa.apk">下载 APK 1.32.1 (80)</a>
+          <a class="btn" download="niyoushua-1.32.1-80-qa.apk" href="https://github.com/xyaz1313/nudge-qa-releases/releases/download/v1.32.1-80/niyoushua-1.32.1-80-qa.apk">下载 APK 1.32.1 (80)</a>
           <a class="btn btn-ghost" href="#walk">使用说明</a>
         </div>
       </div>
@@ -370,32 +359,10 @@
         不夺权、不替你做选择，也不云控你的数据；模型和 Key 在你自己手机里。内测阶段想验证的是：<strong>小白能不能 5 步配好、真机上浮窗干不干净、叫回来有没有用</strong>。
       </p>
     </section>
-
-    <section id="share">
-      <h2>怎么把网页发给别人</h2>
-      <p class="section-sub">这是 <strong>GitHub Pages 静态页</strong>：就是几份 HTML/图片放在 GitHub 上，由 GitHub 免费托管，<strong>不需要你买服务器、不用备案、不用接后台</strong>。改完 push 上去，几分钟内全世界都能打开。</p>
-      <p class="section-sub" style="margin-bottom:0"><strong>内测统一入口（复制发微信 / 做二维码都行）：</strong></p>
-      <p class="share-url" id="share-url">https://xyaz1313.github.io/nudge-qa-releases/</p>
-      <ul class="manual-list" style="margin-top:16px">
-        <li>
-          <h3>对方拿到链接能做什么</h3>
-          <p>读完整说明书、下 APK、核对 SHA，和你在本机看到的是同一个页面。</p>
-        </li>
-        <li>
-          <h3>和 App 里的关系</h3>
-          <p>网页是<strong>说明书 + 下载站</strong>；真正操作仍在 App 五屏引导里完成。两边步骤对齐，降低理解成本。</p>
-        </li>
-        <li>
-          <h3>以后要换域名？</h3>
-          <p>可以绑自己的域名到 GitHub Pages，逻辑不变，仍然不用自架服务器。</p>
-        </li>
-      </ul>
-    </section>
   </main>
 
   <footer>
-    <p>© 内测 · dev.astraedus.nudge · <a href="https://github.com/xyaz1313/nudge-qa-releases">GitHub 仓库</a></p>
-    <p style="margin-top:8px">仍看到<strong>黑框</strong>或第 1 步是「外观与语言」？请<strong>强制刷新</strong>（Ctrl+F5 / 清缓存）——旧版缓存会骗眼睛。</p>
+    <p>© 内测 · dev.astraedus.nudge</p>
   </footer>
 </body>
 </html>
