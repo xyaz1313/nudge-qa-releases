@@ -10,6 +10,7 @@
   <style>
     @font-face { font-family: Noto; src: url("fonts/NotoSansSC-Variable.ttf"); font-weight: 100 900; }
     @font-face { font-family: Smiley; src: url("fonts/SmileySans-Oblique.ttf"); }
+    @font-face { font-family: Unbounded; src: url("fonts/Unbounded-Variable.ttf"); font-weight: 200 900; }
     :root {
       --yellow: #FFBF00;
       --ink: #111111;
@@ -25,23 +26,35 @@
     header {
       background: var(--ink);
       color: var(--paper);
-      padding: 32px 4vw 0;
+      padding: 36px 4vw 36px;
     }
     .header-wrap {
       max-width: 1180px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(260px, 44%);
-      gap: 20px;
-      align-items: end;
+      grid-template-columns: minmax(0, 1.08fr) minmax(200px, 42%);
+      gap: 8px 28px;
+      align-items: center;
     }
-    .kicker { font-size: 11px; letter-spacing: 0.12em; color: var(--yellow); font-weight: 800; margin: 0 0 8px; }
-    header h1 {
-      font: clamp(40px, 6vw, 58px)/1.12 Smiley, Noto, sans-serif;
+    .kicker {
+      font: 10px Unbounded, Noto, sans-serif;
+      letter-spacing: 0.14em;
+      color: var(--yellow);
+      font-weight: 900;
       margin: 0 0 10px;
     }
-    .lead { color: #C5C1B3; margin: 0 0 20px; font-size: 15px; max-width: 28rem; }
-    .header-actions { display: flex; flex-wrap: wrap; gap: 10px; padding-bottom: 32px; }
+    .title-zh {
+      font: clamp(36px, 5.5vw, 52px)/1.08 Smiley, Noto, sans-serif;
+      margin: 0 0 4px;
+    }
+    .title-en {
+      font: clamp(30px, 5.2vw, 48px)/1.05 Unbounded, Noto, sans-serif;
+      font-weight: 900;
+      margin: 0 0 14px;
+      letter-spacing: -0.02em;
+    }
+    .lead { color: #C5C1B3; margin: 0 0 20px; font-size: 14px; max-width: 26rem; line-height: 1.65; }
+    .header-actions { display: flex; flex-wrap: wrap; gap: 10px; }
     header a.btn {
       display: inline-block;
       background: var(--yellow);
@@ -54,14 +67,24 @@
       line-height: 24px;
     }
     header a.btn-ghost { background: var(--paper); color: var(--ink); }
+    header a.btn { border: none; }
     .header-art { line-height: 0; padding: 0; margin: 0; }
+    .header-art { display: flex; justify-content: center; align-items: center; }
     .header-art img {
-      width: 100%;
-      max-height: min(52vh, 440px);
+      width: 78%;
+      max-width: 360px;
+      max-height: 300px;
       object-fit: contain;
-      object-position: bottom right;
+      object-position: center center;
       display: block;
     }
+    .progress-hint {
+      display: flex; gap: 6px; align-items: center; margin-bottom: 18px;
+    }
+    .progress-hint i {
+      width: 8px; height: 8px; border-radius: 4px; background: var(--line); font-style: normal;
+    }
+    .progress-hint i.on { background: var(--yellow); width: 22px; }
     main { max-width: 1180px; margin: 0 auto; padding: 28px 4vw 56px; }
     .meta-line {
       font-size: 13px; color: var(--muted);
@@ -151,16 +174,17 @@
   <header>
     <div class="header-wrap">
       <div>
-        <p class="kicker">内测 QA · 1.32.1 (80)</p>
-        <h1>你又刷了<br>回到这次主线。</h1>
-        <p class="lead">新人按顺序来：先接好大模型，再开权限与内容识别，最后建主线。右侧为 App 开机群像。</p>
+        <p class="kicker">BACK TO MAINLINE · QA BUILD</p>
+        <p class="title-zh">你又刷了</p>
+        <p class="title-en">BACK TO MAINLINE</p>
+        <p class="lead">内测 1.32.1 (80)。装好后在 App 点「开始设置」— 先接大模型，再建主线，再开权限。</p>
         <div class="header-actions">
-          <a class="btn" href="https://github.com/xyaz1313/nudge-qa-releases/releases/download/v1.32.1-80/niyoushua-1.32.1-80-qa.apk">下载 APK</a>
-          <a class="btn btn-ghost" href="#walk">从第 1 步开始</a>
+          <a class="btn" href="https://github.com/xyaz1313/nudge-qa-releases/releases/download/v1.32.1-80/niyoushua-1.32.1-80-qa.apk">下载 APK 1.32.1 (80)</a>
+          <a class="btn btn-ghost" href="#walk">使用说明</a>
         </div>
       </div>
       <div class="header-art">
-        <img src="assets/splash-monster-crowd.png" alt="你又刷了 · 开机阿怪群像" width="640" height="640" />
+        <img src="assets/splash-monster-crowd.png" alt="开机阿怪群像" width="480" height="480" />
       </div>
     </div>
   </header>
@@ -169,77 +193,54 @@
     <p class="meta-line">SHA-256: <code>1540b0eef3ff5988ed45cb310e850d40a3ec7ab4d5cf21690e6b2754ccebf954</code> · 已装旧包可覆盖 · App 内也可：我的 → 许可与版本 → 检查更新</p>
 
     <section id="walk">
-      <h2>新人一步一步</h2>
-      <p class="section-sub">不要跳步。尤其<strong>先接大模型</strong>，再开「内容偏离」判断；主线要建好，提醒才有对象。</p>
+      <h2>安装后怎么设置</h2>
+      <p class="section-sub">与 App 内<strong>五屏引导</strong>相同顺序。每步只做一件事，可点「暂时跳过」。</p>
+      <div class="progress-hint" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i><i></i></div>
 
       <ol class="walk">
         <li>
           <div>
-            <span class="step-tag">第 1 步</span>
-            <h3>安装 APK</h3>
-            <p>下载并安装内测包，系统提示时允许「安装未知应用」。装完先打开 App 看一眼开机封面即可，不必立刻开权限。</p>
-            <p style="margin-top:10px"><a class="btn" href="https://github.com/xyaz1313/nudge-qa-releases/releases/download/v1.32.1-80/niyoushua-1.32.1-80-qa.apk">下载 APK</a></p>
+            <span class="step-tag">01 / 05</span>
+            <h3>开机 · 开始设置</h3>
+            <p>安装后打开 App，黄底封面点 <strong>开始设置</strong>。</p>
           </div>
-          <figure class="phone-shot">
-            <img src="assets/v10-screen-today-zh-light.png" alt="打开 App 后的今天页" loading="lazy" onerror="this.src='assets/v10-screen-home-zh-light.png'" />
-          </figure>
+          <figure class="phone-shot"><img src="assets/cover-welcome-zh.png" alt="开机封面" loading="lazy" /></figure>
         </li>
         <li>
           <div>
-            <span class="step-tag">第 2 步</span>
-            <h3>接大模型（最重要）</h3>
-            <p class="path">我的 → 模型与渠道</p>
-            <p>选一个渠道（如 DeepSeek / OpenAI 兼容），填入 <strong>API Key</strong>，保存。先做一次连接检查或样例测试。没有 Key 也能用时间规则，但<strong>离题提醒会弱</strong>。</p>
+            <span class="step-tag">02 / 05</span>
+            <h3>接大模型</h3>
+            <p class="path">引导第 2 屏 · 模型与渠道</p>
+            <p>选 DeepSeek 等，填 Key，保存。可跳过，但离题判断会变弱。</p>
           </div>
-          <figure class="phone-shot">
-            <img src="assets/v10-screen-model-zh-light.png" alt="模型与渠道" loading="lazy" />
-          </figure>
+          <figure class="phone-shot"><img src="assets/v10-screen-model-zh-light.png" alt="模型与渠道" loading="lazy" /></figure>
         </li>
         <li>
           <div>
-            <span class="step-tag">第 3 步</span>
-            <h3>开权限与内容识别</h3>
-            <p class="path">系统设置 → 无障碍 · 我的 → 设备能力 · 我的 → 悬浮窗与通知</p>
-            <p>① 系统里开启「你又刷了」无障碍。② App 内打开<strong>内容识别</strong>（接好模型后再开）。③ 建议开<strong>悬浮窗</strong>，否则提醒会降级到通知栏。</p>
+            <span class="step-tag">03 / 05</span>
+            <h3>建主线</h3>
+            <p>范围库点一个模板，写清这次要完成什么，设时间盒。</p>
           </div>
-          <figure class="phone-shot">
-            <img src="assets/v10-screen-permissions-zh-light.png" alt="权限与能力" loading="lazy" />
-          </figure>
+          <figure class="phone-shot"><img src="assets/v10-screen-mainline-zh-light.png" alt="建主线" loading="lazy" /></figure>
         </li>
         <li>
           <div>
-            <span class="step-tag">第 4 步</span>
-            <h3>建一条主线</h3>
-            <p class="path">今天 → 主线 → 新建</p>
-            <p>点<strong>范围库</strong>四模板之一（或自己写范围），填清楚「这次要完成什么」。设<strong>预计时长</strong>（时间盒）；用尽后主页会提示收束，不再做内容弹窗。</p>
+            <span class="step-tag">04 / 05</span>
+            <h3>开权限</h3>
+            <p>无障碍必开；悬浮窗建议开。内容识别在模型之后开。</p>
           </div>
-          <figure class="phone-shot">
-            <img src="assets/v10-screen-mainline-zh-light.png" alt="主线与范围" loading="lazy" />
-          </figure>
+          <figure class="phone-shot"><img src="assets/v10-screen-permissions-zh-light.png" alt="权限" loading="lazy" /></figure>
         </li>
         <li>
           <div>
-            <span class="step-tag">第 5 步</span>
-            <h3>刷 feed 怎么介入（可先不改默认）</h3>
-            <p class="path">我的 → 主线介入 · 刷 feed</p>
-            <p>默认前 <strong>10 分钟</strong>不打扰，抖音 / 小红书 / 视频号合并一段刷。微信<strong>聊天不算</strong>刷类。想先感受弹窗可把静默改短做测试。</p>
+            <span class="step-tag">05 / 05</span>
+            <h3>试一次提醒</h3>
+            <p>跟引导试 1 分钟，或到悬浮窗页点测试小浮窗。</p>
           </div>
-          <figure class="phone-shot">
-            <img src="assets/v10-screen-mine-zh-light.png" alt="我的与介入设置入口" loading="lazy" />
-          </figure>
-        </li>
-        <li>
-          <div>
-            <span class="step-tag">第 6 步</span>
-            <h3>确认浮窗长什么样</h3>
-            <p class="path">我的 → 悬浮窗与通知 → 显示一条测试小浮窗</p>
-            <p>应看到「还在这次主线上吗？」和<strong>再看 5 / 10 / 20 分钟</strong>。然后去抖音试刷；离题时才应弹（静默期内不弹）。</p>
-          </div>
-          <figure class="phone-shot">
-            <img src="assets/screen-drift-overlay-1.32.1-80.png" alt="S25 真机偏离浮窗" loading="lazy" />
-          </figure>
+          <figure class="phone-shot"><img src="assets/screen-drift-overlay-1.32.1-80.png" alt="偏离浮窗" loading="lazy" /></figure>
         </li>
       </ol>
+      <p class="section-sub" style="margin-top:16px">进阶：我的 → <strong>主线介入 · 刷 feed</strong>（默认前 10 分钟静默）· 微信聊天不介入。</p>
     </section>
 
     <section id="test">
