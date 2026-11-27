@@ -125,20 +125,41 @@
     }
     .walk h3 { margin: 0 0 6px; font-size: 18px; }
     .path { color: var(--yellow); background: var(--ink); display: inline-block; padding: 2px 0; font-weight: 700; font-size: 13px; margin-bottom: 8px; }
-    .walk p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.65; }
-    .phone-shot {
-      background: var(--ink);
-      border-radius: 22px;
-      padding: 8px;
+    .walk p { margin: 0 0 8px; color: var(--muted); font-size: 14px; line-height: 1.65; }
+    .walk p:last-child { margin-bottom: 0; }
+    .walk .hint { font-size: 13px; color: var(--muted); margin-top: 4px; }
+    .screen-cap {
+      margin: 0;
+      padding: 0;
+      background: transparent;
+      justify-self: end;
+      max-width: min(100%, 300px);
     }
-    .phone-shot img {
+    .screen-cap img {
       width: 100%;
-      max-height: 420px;
       display: block;
-      border-radius: 16px;
-      object-fit: contain;
-      object-position: top center;
-      background: #1a1a1a;
+      border-radius: 20px;
+      border: 1px solid var(--line);
+      background: var(--bg);
+      box-shadow: 0 8px 28px rgba(17, 17, 17, 0.06);
+    }
+    .manual-list { margin: 0; padding: 0; list-style: none; }
+    .manual-list > li {
+      padding: 20px 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .manual-list > li:last-child { border-bottom: none; }
+    .manual-list h3 { margin: 0 0 8px; font-size: 17px; }
+    .manual-list p { margin: 0 0 6px; color: var(--muted); font-size: 14px; line-height: 1.65; }
+    .manual-list .route {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--ink);
+      background: var(--paper);
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 10px;
+      margin-bottom: 8px;
     }
     .btn {
       display: inline-flex; align-items: center; justify-content: center;
@@ -196,7 +217,7 @@
 
     <section id="walk">
       <h2>安装后怎么设置</h2>
-      <p class="section-sub">与 App 内<strong>五屏引导</strong>相同顺序。每步只做一件事，可点「暂时跳过」。</p>
+      <p class="section-sub">这一页就是<strong>完整使用说明</strong>：先按下面 5 步走一遍（与 App 内引导一致），再往下的「日常用法」「常见问题」按需要查阅即可。</p>
       <div class="progress-hint" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i><i></i></div>
 
       <ol class="walk">
@@ -204,42 +225,47 @@
           <div>
             <span class="step-tag">01 / 05</span>
             <h3>开机 · 开始设置</h3>
-            <p>安装后打开 App，黄底封面点 <strong>开始设置</strong>。</p>
+            <p>第一次打开停在黄底封面，点底部黑按钮 <strong>开始设置</strong>（不是「回主线」标签，那是品牌字样）。</p>
+            <p class="hint">画面应和右图一致：阿怪群像 +「开始设置」。</p>
           </div>
-          <figure class="phone-shot"><img src="assets/v10-screen-cover-zh-light.png" alt="开机封面 · 开始设置" loading="lazy" /></figure>
+          <figure class="screen-cap"><img src="assets/onboarding-01-start-setup-s25.png" alt="黄底封面 · 开始设置" loading="lazy" /></figure>
         </li>
         <li>
           <div>
             <span class="step-tag">02 / 05</span>
             <h3>接大模型</h3>
             <p class="path">引导第 2 屏 · 模型与渠道</p>
-            <p>选 DeepSeek 等，填 Key，保存。可跳过，但离题判断会变弱。</p>
+            <p>选供应商，填 API Key，点保存。赶时间可点<strong>暂时跳过，下一步</strong>（只靠时间规则，离题判断会弱一些）。</p>
+            <p class="hint">装好模型后再开「内容识别」。</p>
           </div>
-          <figure class="phone-shot"><img src="assets/v10-screen-model-zh-light.png" alt="模型与渠道" loading="lazy" /></figure>
+          <figure class="screen-cap"><img src="assets/onboarding-02-model-s25.png" alt="模型与渠道 · 内测引导" loading="lazy" /></figure>
         </li>
         <li>
           <div>
             <span class="step-tag">03 / 05</span>
             <h3>建主线</h3>
-            <p>范围库点一个模板，写清这次要完成什么，设时间盒。</p>
+            <p>点范围库模板或自己写标题，再选预计时长，点<strong>保存这条主线</strong>。</p>
+            <p class="hint">标题不能为空；时长要点选一个（15 / 30 / 45 分钟等）。</p>
           </div>
-          <figure class="phone-shot"><img src="assets/v10-screen-mainline-zh-light.png" alt="建主线" loading="lazy" /></figure>
+          <figure class="screen-cap"><img src="assets/v10-screen-mainline-zh-light.png" alt="建主线" loading="lazy" /></figure>
         </li>
         <li>
           <div>
             <span class="step-tag">04 / 05</span>
             <h3>开权限</h3>
-            <p>无障碍必开；悬浮窗建议开。内容识别在模型之后开。</p>
+            <p>无障碍、使用情况、悬浮窗、通知——每项点进去开；最后一页点<strong>查看并开启权限</strong>进试一次。</p>
+            <p class="hint">极简说明在引导里已写好，这里不再展开法律长文。</p>
           </div>
-          <figure class="phone-shot"><img src="assets/v10-screen-permissions-zh-light.png" alt="权限" loading="lazy" /></figure>
+          <figure class="screen-cap"><img src="assets/v10-screen-permissions-zh-light.png" alt="权限引导" loading="lazy" /></figure>
         </li>
         <li>
           <div>
             <span class="step-tag">05 / 05</span>
             <h3>试一次提醒</h3>
-            <p>跟引导试 1 分钟，或到悬浮窗页点测试小浮窗。</p>
+            <p>跟引导测 1 分钟，或点<strong>进入今天</strong>先用起来。</p>
+            <p class="hint">之后可随时：我的 → 悬浮窗与通知 → 测试小浮窗。</p>
           </div>
-          <figure class="phone-shot"><img src="assets/screen-drift-overlay-1.32.1-80.png" alt="偏离浮窗" loading="lazy" /></figure>
+          <figure class="screen-cap"><img src="assets/screen-drift-overlay-1.32.1-80.png" alt="偏离浮窗 · S25 真机" loading="lazy" /></figure>
         </li>
       </ol>
       <p class="section-sub" style="margin-top:16px">进阶：我的 → <strong>主线介入 · 刷 feed</strong>（默认前 10 分钟静默）· 微信聊天不介入。</p>
@@ -259,8 +285,8 @@
     </section>
 
     <section id="gallery">
-      <h2>界面速览</h2>
-      <p class="section-sub">三列对照，与上面步骤同一套中文浅色界面。</p>
+      <h2>装好之后 · 日常怎么找</h2>
+      <p class="section-sub">三张常用界面示意（无手机黑框，就是 App 里实际长什么样）。</p>
       <div class="shot-grid">
         <figure class="shot">
           <img src="assets/v10-screen-model-zh-light.png" alt="" loading="lazy" />
@@ -275,6 +301,50 @@
           <figcaption>S25 偏离浮窗</figcaption>
         </figure>
       </div>
+      <ul class="manual-list">
+        <li>
+          <span class="route">我的 → 模型与渠道</span>
+          <h3>改模型、开关内容识别</h3>
+          <p>第一次已在引导里配过，这里随时增删供应商。内容识别依赖已保存的 Key；没模型就别开识别。</p>
+        </li>
+        <li>
+          <span class="route">我的 → 悬浮窗与通知</span>
+          <h3>测浮窗、改提醒样式</h3>
+          <p>点<strong>测试小浮窗</strong>看白卡四角和文案。悬浮窗没开时，可先用通知顶着。</p>
+        </li>
+        <li>
+          <span class="route">我的 → 主线介入 · 刷 feed</span>
+          <h3>抖音 / 小红书 / 视频号怎么叫回来</h3>
+          <p>内测默认：装好后前 <strong>10 分钟</strong> 抖音 + 小红书合并静默，之后才可能偏离浮窗。微信<strong>聊天不介入</strong>；视频号才可能弹。</p>
+        </li>
+        <li>
+          <span class="route">我的 → 外观与语言</span>
+          <h3>深浅色、中英（和引导无关）</h3>
+          <p>这是设置页，不是安装引导第 1 步。新人只要记住封面上的<strong>开始设置</strong>即可。</p>
+        </li>
+      </ul>
+    </section>
+
+    <section id="faq">
+      <h2>常见问题</h2>
+      <ul class="manual-list">
+        <li>
+          <h3>装完没出现引导？</h3>
+          <p>从旧版覆盖安装可能保留过引导标记。卸载重装，或在系统里清除「你又刷了」数据后再开。</p>
+        </li>
+        <li>
+          <h3>保存主线按钮灰的？</h3>
+          <p>要写标题并点选一个时长，不能直接只有占位字。</p>
+        </li>
+        <li>
+          <h3>浮窗不出来？</h3>
+          <p>先开悬浮窗权限，再在 App 内测一次；Android 16 上留意是否被省电杀掉后台。</p>
+        </li>
+        <li>
+          <h3>更新包</h3>
+          <p>本页顶部下载 APK，或 App 内：我的 → 许可与版本 → 检查更新。</p>
+        </li>
+      </ul>
     </section>
   </main>
 
